@@ -45,6 +45,9 @@ func handlerConnecter(connection net.Conn) {
 				compteur += 1
 			}
 			data, err := datas.ReadString('\n')
+			if len(data) == 1 {
+				continue
+			}
 			if err != nil {
 				var tmp int
 				mutex.Lock()
@@ -85,7 +88,7 @@ func handlerConnecter(connection net.Conn) {
 					compteur += 1
 				}
 			}
-			
+
 		}
 	}
 
