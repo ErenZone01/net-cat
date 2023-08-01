@@ -13,6 +13,10 @@ var user int
 
 func main() {
 	var port = ChoosePort()
+	if port == ""{
+		fmt.Println("Erreurs lors de la creation de l'ecouteur listen tcp")
+		return
+	}
 	addresse := ":" + port
 	ecouteur, err := net.Listen("tcp", addresse)
 	if err != nil {
